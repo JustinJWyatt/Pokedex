@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "tzEdqiLrcunUEDuILq4campWzIAh/TF05azq4zUkAEHjwI/2xhBhR76k5jQGm/khJwTfITTHoLvnOnIQDu03iw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex.iOS\\Pokedex.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512"
+  ],
+  "logs": []
+}
