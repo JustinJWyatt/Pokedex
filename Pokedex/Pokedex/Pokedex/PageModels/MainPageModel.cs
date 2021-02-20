@@ -17,6 +17,7 @@ namespace Pokedex.PageModels
     public class MainPageModel : FreshBasePageModel
     {
         private readonly IPokemonService _pokemonService;
+        private Pokemon _selectedPokemon;
 
         public MainPageModel(IPokemonService pokemonService)
         {
@@ -26,48 +27,69 @@ namespace Pokedex.PageModels
         #region Properties
         public ObservableCollection<Pokemon> Pokemon { get; set; } = new ObservableCollection<Pokemon>();
         public PokeAPIPage PokeAPIPage { get; set; }
+        public bool IsLoading { get; set; }
+        public Pokemon SelectedPokemon
+        {
+            get
+            {
+                return _selectedPokemon;
+            }
+
+            set
+            {
+                _selectedPokemon = value;
+                if (value == null) return;
+                PokemonSelectedCommand.Execute(_selectedPokemon);
+                SelectedPokemon = null;
+            }
+        }
         #endregion
 
         #region Commands
-        public Command LoadMoreCommand
+        public Command LoadMoreCommand => new Command(async () =>
         {
-            get
-            {
-                return new Command(() =>
-                {
-                    //TODO: LoadMore();
-                });
-            }
-        }
+            await LoadPage(PokeAPIPage.Next);
+        });
 
-        public Command ShowPokemonDetail
+        public Command ShowPokemonDetail => new Command<Pokemon>((pokemon) =>
         {
-            get
-            {
-                return new Command<Pokemon>((pokemon) =>
-                {
-                    //TODO: Show Pokemon navigation
-                });
-            }
-        }
+            //TODO: Show Pokemon navigation
+        });
+
+        public Command PokemonSelectedCommand => new Command<Pokemon>((pokemon) =>
+        {
+            ShowPokemonDetail.Execute(pokemon);
+        });
         #endregion
 
         #region Methods
-        public void LoadMore()
+        public async Task LoadPage(string uri)
         {
-            //TODO: Take next page and replace current page
+            IsLoading = true;
+
+            PokeAPIPage = await _pokemonService.GetPokeAPIPage(uri);
+
+            var uris = PokeAPIPage.Results.Select(result => result.Url);
+
+            await LoadPokemonAsync(uris);
         }
 
-        public void LoadPokemon(IEnumerable<string> uris)
+        public async Task LoadPokemonAsync(IEnumerable<string> uris)
         {
-            uris.ToList().ForEach(async (uri) =>
+            var request = uris.ToList().Select(_pokemonService.GetPokemon);
+
+            //TODO: Cache details
+
+            var response = await Task.WhenAll(request);
+
+            Device.BeginInvokeOnMainThread(() =>
             {
-                //TODO: Query cache for uri
-                var pokemon = await _pokemonService.GetPokemon(uri);
+                response.ToList().ForEach((pokemon) =>
+                {
+                    Pokemon.Add(pokemon);
+                });
 
-                Pokemon.Add(pokemon);
-
-                //TODO: Add details to cache
+                IsLoading = false;
             });
         }
         #endregion
@@ -79,13 +101,7 @@ namespace Pokedex.PageModels
 
             if (PokeAPIPage == null)
             {
-                var page = await _pokemonService.GetPokeAPIPage(PokeAPI.BaseUrl);
-
-                PokeAPIPage = page;
-
-                var uris = PokeAPIPage.Results.Select(result => result.Url);
-
-                LoadPokemon(uris);
+                await LoadPage(PokeAPI.BaseUrl);
             }
         }
 
