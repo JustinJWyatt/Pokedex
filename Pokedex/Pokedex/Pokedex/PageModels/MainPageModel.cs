@@ -10,6 +10,7 @@ using PropertyChanged;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using Pokedex.Utilities;
 
 namespace Pokedex.PageModels
 {
@@ -86,6 +87,7 @@ namespace Pokedex.PageModels
             {
                 response.ToList().ForEach((pokemon) =>
                 {
+                    pokemon.Name = pokemon.Name.UppercaseFirst();
                     Pokemon.Add(pokemon);
                 });
 

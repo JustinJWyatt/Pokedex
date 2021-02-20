@@ -16,7 +16,7 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding Name}" />
-                            <Label Text="{Binding Id}" />
+                            <Image Source="{Binding Sprites.Other.OfficialArtwork.FrontDefault}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
