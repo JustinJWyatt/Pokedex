@@ -4,9 +4,14 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\bin\Debug\netstand
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\bin\Debug\netstandard2.0\Pokedex.pdb
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.csprojAssemblyReference.cache
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\App.xaml.g.cs
-C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pages\MainPage.xaml.g.cs
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pages\PokemonDetailPage.xaml.g.cs
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pages\PokemonTypeFilterPage.xaml.g.cs
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.AssemblyInfoInputs.cache
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.AssemblyInfo.cs
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.csproj.CoreCompileInputs.cache
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.csproj.Fody.CopyLocal.cache
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\ref\Pokedex.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.pdb

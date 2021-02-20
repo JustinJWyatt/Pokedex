@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "FreshMvvm/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "4.0.0",
+          "Xamarin.Forms": "3.4.0.1009999"
+        },
+        "compile": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -9,6 +30,43 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Reactive/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.InteropServices.WindowsRuntime": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        }
+      },
+      "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios1/_._": {},
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -149,7 +207,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FreshMvvm": "3.0.0",
           "Newtonsoft.Json": "12.0.3",
+          "PropertyChanged.Fody": "3.3.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.6.0.1141"
         },
@@ -162,6 +222,27 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "FreshMvvm/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "4.0.0",
+          "Xamarin.Forms": "3.4.0.1009999"
+        },
+        "compile": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -169,6 +250,43 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Reactive/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.InteropServices.WindowsRuntime": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        }
+      },
+      "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios1/_._": {},
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -309,7 +427,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FreshMvvm": "3.0.0",
           "Newtonsoft.Json": "12.0.3",
+          "PropertyChanged.Fody": "3.3.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.6.0.1141"
         },
@@ -322,6 +442,27 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "FreshMvvm/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "4.0.0",
+          "Xamarin.Forms": "3.4.0.1009999"
+        },
+        "compile": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -329,6 +470,43 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Reactive/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.InteropServices.WindowsRuntime": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        }
+      },
+      "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios1/_._": {},
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -469,7 +647,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FreshMvvm": "3.0.0",
           "Newtonsoft.Json": "12.0.3",
+          "PropertyChanged.Fody": "3.3.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.6.0.1141"
         },
@@ -482,6 +662,27 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Fody/6.3.0": {
+        "type": "package",
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "FreshMvvm/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "4.0.0",
+          "Xamarin.Forms": "3.4.0.1009999"
+        },
+        "compile": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FreshIOC.dll": {},
+          "lib/netstandard2.0/FreshMvvm.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -489,6 +690,43 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PropertyChanged.Fody/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Fody": "6.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PropertyChanged.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "System.Reactive/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.InteropServices.WindowsRuntime": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reactive.dll": {}
+        }
+      },
+      "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/xamarinios10/_._": {}
+        },
+        "runtime": {
+          "lib/xamarinios1/_._": {},
+          "lib/xamarinios10/_._": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -629,7 +867,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "FreshMvvm": "3.0.0",
           "Newtonsoft.Json": "12.0.3",
+          "PropertyChanged.Fody": "3.3.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.6.0.1141"
         },
@@ -643,6 +883,54 @@
     }
   },
   "libraries": {
+    "Fody/6.3.0": {
+      "sha512": "kBGlW/vBUvBSyCvFI3YICNl77gjUr0KMROlBTeBPN/+J3JMU57w1dpXPwjmU4ahdBTYLomzgxKLaJ3jVNuXuQg==",
+      "type": "package",
+      "path": "fody/6.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Fody.targets",
+        "fody.6.3.0.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
+      ]
+    },
+    "FreshMvvm/3.0.0": {
+      "sha512": "/XDZFT3hQP7Vbz44BJYkeWgPIDUenA2KHxROV95syRcARH/5r//Upx+Z6MVXcAioW9KvTOivrBvU+Q47Wy7Arg==",
+      "type": "package",
+      "path": "freshmvvm/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "freshmvvm.3.0.0.nupkg.sha512",
+        "freshmvvm.nuspec",
+        "lib/netstandard2.0/FreshIOC.dll",
+        "lib/netstandard2.0/FreshIOC.pdb",
+        "lib/netstandard2.0/FreshMvvm.dll",
+        "lib/netstandard2.0/FreshMvvm.pdb"
+      ]
+    },
     "Newtonsoft.Json/12.0.3": {
       "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "type": "package",
@@ -672,6 +960,108 @@
         "newtonsoft.json.12.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "PropertyChanged.Fody/3.3.1": {
+      "sha512": "/K/X8wn2IZV7Zezb+WvieOalWopFJKEcB7BrPoDFCj74VexupWdtvqriCoifSyrX0E+XhTzk0cVQd26hQ7TODg==",
+      "type": "package",
+      "path": "propertychanged.fody/3.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/PropertyChanged.Fody.props",
+        "lib/net40/PropertyChanged.dll",
+        "lib/net40/PropertyChanged.xml",
+        "lib/netstandard1.0/PropertyChanged.dll",
+        "lib/netstandard1.0/PropertyChanged.xml",
+        "lib/netstandard2.0/PropertyChanged.dll",
+        "lib/netstandard2.0/PropertyChanged.xml",
+        "propertychanged.fody.3.3.1.nupkg.sha512",
+        "propertychanged.fody.nuspec",
+        "weaver/PropertyChanged.Fody.dll",
+        "weaver/PropertyChanged.Fody.xcf"
+      ]
+    },
+    "System.Reactive/4.0.0": {
+      "sha512": "yaVAxT2Yl28p9+DupGwj2oPbIOYZUQimOQ+n7N7vML2oofIRj9BmcfD7DHc6FLrNah65EigOgG6U9VnwWEyz5g==",
+      "type": "package",
+      "path": "system.reactive/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net46/System.Reactive.dll",
+        "lib/net46/System.Reactive.xml",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.xml",
+        "lib/uap10.0.16299/System.Reactive.dll",
+        "lib/uap10.0.16299/System.Reactive.pri",
+        "lib/uap10.0.16299/System.Reactive.xml",
+        "lib/uap10.0/System.Reactive.dll",
+        "lib/uap10.0/System.Reactive.pri",
+        "lib/uap10.0/System.Reactive.xml",
+        "system.reactive.4.0.0.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
+    },
+    "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
+      "sha512": "J4GUi3xZQLUBasNwZnjrffN8i5wpHrBtZoLG+OhRyGo/+YunMRWWtwoMDlUAIdmX0uRfpHIBDSV6zyr3yf00TA==",
+      "type": "package",
+      "path": "system.runtime.interopservices.windowsruntime/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Runtime.InteropServices.WindowsRuntime.dll",
+        "lib/netstandard1.3/System.Runtime.InteropServices.WindowsRuntime.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios1/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/System.Runtime.InteropServices.WindowsRuntime.dll",
+        "ref/netcore50/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/de/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/es/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/fr/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/it/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/ja/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/ko/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/ru/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/zh-hans/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netcore50/zh-hant/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/System.Runtime.InteropServices.WindowsRuntime.dll",
+        "ref/netstandard1.0/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/de/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/es/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/fr/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/it/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/ja/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/ko/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/ru/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/zh-hans/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/netstandard1.0/zh-hant/System.Runtime.InteropServices.WindowsRuntime.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/aot/lib/netcore50/System.Runtime.InteropServices.WindowsRuntime.dll",
+        "system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+        "system.runtime.interopservices.windowsruntime.nuspec"
       ]
     },
     "Xamarin.Essentials/1.5.3.2": {

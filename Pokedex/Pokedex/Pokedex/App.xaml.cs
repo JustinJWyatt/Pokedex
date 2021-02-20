@@ -1,6 +1,8 @@
-﻿using System;
+﻿using FreshMvvm;
+using Pokedex.Client;
+using Pokedex.PageModels;
+using Pokedex.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Pokedex
 {
@@ -10,19 +12,17 @@ namespace Pokedex
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            ConfigureIOC();
+
+            var page = FreshPageModelResolver.ResolvePageModel<MainPageModel>();
+            var basicNavContainer = new FreshNavigationContainer(page);
+            MainPage = basicNavContainer;
         }
 
-        protected override void OnStart()
+        private void ConfigureIOC()
         {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
+            FreshIOC.Container.Register<IPokeAPIClient, PokeAPIClient>();
+            FreshIOC.Container.Register<IPokemonService, PokemonService>();
         }
     }
 }

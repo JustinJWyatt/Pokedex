@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
