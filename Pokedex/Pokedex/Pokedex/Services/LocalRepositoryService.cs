@@ -46,6 +46,11 @@ namespace Pokedex.Services
             await Database.InsertAllAsync(pokemon);
         }
 
+        public async Task SavePokemonAsync(PokemonRepository pokemon)
+        {
+            await Database.UpdateAsync(pokemon);
+        }
+
         public async Task<List<PokemonRepository>> GetPokemonAsync()
         {
             return await Database.Table<PokemonRepository>().ToListAsync();

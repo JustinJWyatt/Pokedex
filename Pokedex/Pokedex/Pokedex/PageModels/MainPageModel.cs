@@ -72,17 +72,17 @@ namespace Pokedex.PageModels
             }
         });
 
-        public Command ShowPokemonDetail => new Command<Pokemon>((pokemon) =>
+        public Command ShowPokemonDetailCommnad => new Command<PokemonRepository>(async (pokemon) =>
         {
-            //TODO: Show Pokemon navigation
+            await CoreMethods.PushPageModel<PokemonDetailPageModel>(pokemon.Url, true, true);
         });
 
         public Command PokemonSelectedCommand => new Command<PokemonRepository>((pokemon) =>
         {
-            ShowPokemonDetail.Execute(pokemon);
+            ShowPokemonDetailCommnad.Execute(pokemon);
         });
 
-        public Command PokemonFavoriteCommand => new Command<Pokemon>((pokemon) =>
+        public Command PokemonFavoriteCommand => new Command<PokemonRepository>((pokemon) =>
         {
             //TODO: Toggle favorite icon color
         });
@@ -110,15 +110,15 @@ namespace Pokedex.PageModels
                     PageNumber = PageNumber
                 };
 
-                var uris = pokeAPIPage.Results.Select(result => result.Url);
-
-                await Task.WhenAll(SavePokemonAsync(uris), SavePageAsync(PokeAPIPage));
+                await Task.WhenAll(SavePokemonAsync(pokeAPIPage.Results), SavePageAsync(PokeAPIPage));
             }
         }
 
-        public async Task SavePokemonAsync(IEnumerable<string> uris)
+        public async Task SavePokemonAsync(IEnumerable<PokeAPIPageResult> results)
         {
-            var request = uris.ToList().Select(_pokemonService.GetPokemonAsync);
+            var request = results.Select(result => result.Url)
+                                 .ToList()
+                                 .Select(_pokemonService.GetPokemonAsync);
 
             var response = await Task.WhenAll(request);
 
@@ -129,7 +129,8 @@ namespace Pokedex.PageModels
                 Height = pokemon.Height,
                 Weight = pokemon.Weight,
                 Name = pokemon.Name.UppercaseFirst(),
-                Image = pokemon.Sprites.Other.OfficialArtwork.FrontDefault
+                Image = pokemon.Sprites.Other.OfficialArtwork.FrontDefault,
+                Url = results.FirstOrDefault(x => x.Name == pokemon.Name).Url
             });
 
             await _localRepositoryService.SavePokemonAsync(repositories);

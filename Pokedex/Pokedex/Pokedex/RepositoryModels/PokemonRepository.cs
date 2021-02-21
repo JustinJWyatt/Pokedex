@@ -13,5 +13,6 @@ namespace Pokedex.RepositoryModels
         public int Height { get; set; }
         public int Weight { get; set; }
         public string Image { get; set; }
+        public string Url { get; set; }
     }
 }
