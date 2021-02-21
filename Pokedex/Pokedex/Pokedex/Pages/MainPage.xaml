@@ -8,15 +8,15 @@
 
     <StackLayout Orientation="Vertical" Margin="10,10,10,10">
         <ListView SelectedItem="{Binding SelectedPokemon}"
-                  ItemsSource="{Binding Pokemon}"
+                  ItemsSource="{Binding FilteredResults}"
                   SelectionMode="Single"
                   VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}" />
                             <Label Text="{Binding Name}" />
-                            <Image Source="{Binding Sprites.Other.OfficialArtwork.FrontDefault}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

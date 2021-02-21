@@ -5,7 +5,7 @@ namespace Pokedex.Services
 {
     public interface IPokemonService
     {
-        Task<PokeAPIPage> GetPokeAPIPage(string uri);
-        Task<Pokemon> GetPokemon(string uri);
+        Task<PokeAPIPage> GetPokeAPIPageAsync(string uri);
+        Task<Pokemon> GetPokemonAsync(string uri);
     }
 }

@@ -23,6 +23,7 @@ namespace Pokedex
         {
             FreshIOC.Container.Register<IPokeAPIClient, PokeAPIClient>();
             FreshIOC.Container.Register<IPokemonService, PokemonService>();
+            FreshIOC.Container.Register<ILocalRepositoryService, LocalRepositoryService>();
         }
     }
 }

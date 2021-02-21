@@ -1,9 +1,7 @@
 ﻿using Pokedex.Models;
 using Pokedex.Services;
-using System;
 using FreshMvvm;
 using System.Collections.ObjectModel;
-using System.Text;
 using Pokedex.Constants;
 using Xamarin.Forms;
 using PropertyChanged;
@@ -11,25 +9,33 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using Pokedex.Utilities;
+using Pokedex.RepositoryModels;
 
 namespace Pokedex.PageModels
 {
     [AddINotifyPropertyChangedInterface]
     public class MainPageModel : FreshBasePageModel
     {
+        #region Members
         private readonly IPokemonService _pokemonService;
-        private Pokemon _selectedPokemon;
+        private readonly ILocalRepositoryService _localRepositoryService;
+        private PokemonRepository _selectedPokemon;
+        #endregion
 
-        public MainPageModel(IPokemonService pokemonService)
+        public MainPageModel(IPokemonService pokemonService, ILocalRepositoryService localRepositoryService)
         {
             _pokemonService = pokemonService;
+            _localRepositoryService = localRepositoryService;
         }
 
         #region Properties
-        public ObservableCollection<Pokemon> Pokemon { get; set; } = new ObservableCollection<Pokemon>();
-        public PokeAPIPage PokeAPIPage { get; set; }
+        public List<PokemonRepository> Pokemon { get; set; } = new List<PokemonRepository>();
+        public ObservableCollection<PokemonRepository> FilteredResults { get; set; } = new ObservableCollection<PokemonRepository>();
+        public ObservableCollection<PokemonType> TypeFilters { get; set; }
+        public PokeAPIPageRepository PokeAPIPage { get; set; }
+        public int PageNumber { get; set; }
         public bool IsLoading { get; set; }
-        public Pokemon SelectedPokemon
+        public PokemonRepository SelectedPokemon
         {
             get
             {
@@ -49,7 +55,14 @@ namespace Pokedex.PageModels
         #region Commands
         public Command LoadMoreCommand => new Command(async () =>
         {
-            await LoadPage(PokeAPIPage.Next);
+            if (!string.IsNullOrEmpty(PokeAPIPage.Next))
+            {
+                await GetPokeAPIPageAsync(PokeAPIPage.Next);
+            }
+            else
+            {
+                //TODO: Let the collection view know there is no more to load
+            }
         });
 
         public Command ShowPokemonDetail => new Command<Pokemon>((pokemon) =>
@@ -57,40 +70,69 @@ namespace Pokedex.PageModels
             //TODO: Show Pokemon navigation
         });
 
-        public Command PokemonSelectedCommand => new Command<Pokemon>((pokemon) =>
+        public Command PokemonSelectedCommand => new Command<PokemonRepository>((pokemon) =>
         {
             ShowPokemonDetail.Execute(pokemon);
+        });
+
+        public Command PokemonFavoriteCommand => new Command<Pokemon>((pokemon) =>
+        {
+            //TODO: Toggle favorite icon color
         });
         #endregion
 
         #region Methods
-        public async Task LoadPage(string uri)
+        public async Task SavePageAsync(PokeAPIPageRepository pokeAPIPage)
         {
-            IsLoading = true;
-
-            PokeAPIPage = await _pokemonService.GetPokeAPIPage(uri);
-
-            var uris = PokeAPIPage.Results.Select(result => result.Url);
-
-            await LoadPokemonAsync(uris);
+            await _localRepositoryService.SavePokeAPIRepositoryAsync(pokeAPIPage);
         }
 
-        public async Task LoadPokemonAsync(IEnumerable<string> uris)
+        public async Task GetPokeAPIPageAsync(string uri)
         {
-            var request = uris.ToList().Select(_pokemonService.GetPokemon);
+            var pokeAPIPage = await _pokemonService.GetPokeAPIPageAsync(uri);
 
-            //TODO: Cache details
+            if (pokeAPIPage != null)
+            {
+                PageNumber++;
+
+                PokeAPIPage = new PokeAPIPageRepository
+                {
+                    Count = pokeAPIPage.Count,
+                    Next = pokeAPIPage.Next,
+                    Previous = pokeAPIPage.Previous,
+                    PageNumber = PageNumber
+                };
+
+                var uris = pokeAPIPage.Results.Select(result => result.Url);
+
+                await Task.WhenAll(SavePokemonAsync(uris), SavePageAsync(PokeAPIPage));
+            }
+        }
+
+        public async Task SavePokemonAsync(IEnumerable<string> uris)
+        {
+            var request = uris.ToList().Select(_pokemonService.GetPokemonAsync);
 
             var response = await Task.WhenAll(request);
 
+            var repositories = response.Select(pokemon => new PokemonRepository
+            {
+                PageNumber = PageNumber,
+                PokemonId = pokemon.Id,
+                Height = pokemon.Height,
+                Weight = pokemon.Weight,
+                Name = pokemon.Name.UppercaseFirst(),
+                Image = pokemon.Sprites.Other.OfficialArtwork.FrontDefault
+            });
+
+            await _localRepositoryService.SavePokemonAsync(repositories);
+
+            //TODO: Add exception handling
+
             Device.BeginInvokeOnMainThread(() =>
             {
-                response.ToList().ForEach((pokemon) =>
-                {
-                    pokemon.Name = pokemon.Name.UppercaseFirst();
-                    Pokemon.Add(pokemon);
-                });
-
+                Pokemon.AddRange(repositories);
+                FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
                 IsLoading = false;
             });
         }
@@ -101,15 +143,44 @@ namespace Pokedex.PageModels
         {
             base.Init(initData);
 
+            IsLoading = true;
+
             if (PokeAPIPage == null)
             {
-                await LoadPage(PokeAPI.BaseUrl);
+                var pokeAPIPages = await _localRepositoryService.GetPokeAPIRepositoryAsync();
+
+                if (pokeAPIPages.Count == 0)
+                {
+                    await GetPokeAPIPageAsync(PokeAPI.BaseUrl);
+                }
+                else
+                {
+                    PokeAPIPage = pokeAPIPages.Last();
+
+                    PageNumber = PokeAPIPage.PageNumber;
+
+                    for (int i = 1; i <= PokeAPIPage.PageNumber; i++)
+                    {
+                        Pokemon.AddRange(await _localRepositoryService.GetPokemonAsync(i));
+                    }
+
+                    FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon.OrderBy(x => x.PokemonId));
+
+                    IsLoading = false;
+                }
             }
         }
 
         public override void ReverseInit(object returnedData)
         {
             base.ReverseInit(returnedData);
+
+            if (returnedData is List<PokemonType> typeFilters)
+            {
+                TypeFilters = new ObservableCollection<PokemonType>(typeFilters);
+
+                //TODO: Filtered results from list of types
+            }
         }
         #endregion
     }
