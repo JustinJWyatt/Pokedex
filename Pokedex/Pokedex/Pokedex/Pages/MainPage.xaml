@@ -7,20 +7,21 @@
              x:Class="Pokedex.Pages.MainPage">
 
     <StackLayout Orientation="Vertical" Margin="10,10,10,10">
-        <ListView SelectedItem="{Binding SelectedPokemon}"
-                  ItemsSource="{Binding FilteredResults}"
-                  SelectionMode="Single"
-                  VerticalOptions="FillAndExpand">
-            <ListView.ItemTemplate>
+        <CollectionView SelectedItem="{Binding SelectedPokemon}"
+                        ItemsSource="{Binding FilteredResults}"
+                        ItemSizingStrategy="MeasureAllItems"
+                        SelectionMode="Single"
+                        RemainingItemsThreshold="5"
+                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
+                        VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="{Binding Image}" />
-                            <Label Text="{Binding Name}" />
-                        </StackLayout>
-                    </ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="{Binding Image}" />
+                        <Label Text="{Binding Name}" />
+                    </StackLayout>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 </ContentPage>

@@ -55,8 +55,15 @@ namespace Pokedex.PageModels
         #region Commands
         public Command LoadMoreCommand => new Command(async () =>
         {
+            if (IsLoading)
+            {
+                return;
+            }
+
             if (!string.IsNullOrEmpty(PokeAPIPage.Next))
             {
+                IsLoading = true;
+
                 await GetPokeAPIPageAsync(PokeAPIPage.Next);
             }
             else
@@ -159,12 +166,12 @@ namespace Pokedex.PageModels
 
                     PageNumber = PokeAPIPage.PageNumber;
 
-                    for (int i = 1; i <= PokeAPIPage.PageNumber; i++)
+                    for (int i = 1; i <= PageNumber; i++)
                     {
                         Pokemon.AddRange(await _localRepositoryService.GetPokemonAsync(i));
                     }
 
-                    FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon.OrderBy(x => x.PokemonId));
+                    FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
 
                     IsLoading = false;
                 }
