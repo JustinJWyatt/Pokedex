@@ -12,9 +12,9 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Image HeightRequest="425" Source="{Binding Pokemon.Sprites.Other.OfficialArtwork.FrontDefault}" Aspect="AspectFill" >
+            <Image HeightRequest="425" Aspect="AspectFill" >
                 <Image.Source>
-                    <UriImageSource Uri="{Binding .}" CacheValidity="2" CachingEnabled="True" />
+                    <UriImageSource Uri="{Binding Pokemon.Sprites.Other.OfficialArtwork.FrontDefault}" CacheValidity="2" CachingEnabled="True" />
                 </Image.Source>
             </Image>
 
