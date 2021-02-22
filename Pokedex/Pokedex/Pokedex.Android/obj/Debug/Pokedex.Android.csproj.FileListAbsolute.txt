@@ -497,3 +497,8 @@
 /Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/res/drawable/layerlist.xml
 /Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/res/drawable/pokeball.png
 /Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/android/src/crc64c2508855815c22ae/SplashActivity.java
+/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/res/mipmap-mdpi/pokeball.png
+/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/res/mipmap-hdpi/pokeball.png
+/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/res/mipmap-xhdpi/pokeball.png
+/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/res/mipmap-xxhdpi/pokeball.png
+/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/res/mipmap-xxxhdpi/pokeball.png

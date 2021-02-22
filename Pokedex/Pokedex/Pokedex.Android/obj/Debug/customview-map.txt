@@ -33,7 +33,6 @@ item;obj/Debug/res/drawable/layerlist.xml
 item;obj/Debug/res/values/styles.xml
 layer-list;obj/Debug/res/drawable/layerlist.xml
 LinearLayout;/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/lp/40/jl/res/layout/bottomtablayout.xml
-LinearLayout;obj/Debug/res/drawable/layerlist.xml
 paths;/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/lp/39/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
 resources;/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.Android/obj/Debug/lp/40/jl/res/values/styles.xml
 resources;obj/Debug/res/values/colors.xml
