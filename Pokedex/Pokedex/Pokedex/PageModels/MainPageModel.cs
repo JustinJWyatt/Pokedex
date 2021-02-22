@@ -100,6 +100,11 @@ namespace Pokedex.PageModels
             //TODO: Toggle favorite icon color
         });
 
+        public Command ShowImageCommand => new Command<string>((url) =>
+        {
+            //TODO: Show Image full screen
+        });
+
         public Command ShowPokemonFilterCommand => new Command(async () =>
         {
             if (FilteredResults.Any())
@@ -116,9 +121,18 @@ namespace Pokedex.PageModels
 
             if (Types.Any() && Types.Any(x => x.Checked))
             {
-                //TODO: Apply filters
-                var names = Types.Where(x => x.Checked).Select(x => x.Name).ToList();
-                var p = Pokemon.Where(x => x.Types.Split(new char[] { ',' }).ToList().Intersect(names).Any()).ToList();
+                var results = new List<PokemonRepository>();
+                var names = Types.Where(x => x.Checked).Select(x => x.Name.ToLower()).ToList();
+                Pokemon.ForEach((p) =>
+                {
+                    var types = p.Types.Split(new char[] { ',' }).Select(y => y.ToLower());
+                    if (names.Intersect(types).Any())
+                    {
+                        results.Add(p);
+                    }
+                });
+
+                FilteredResults = new ObservableCollection<PokemonRepository>(results);
             }
         }
 

@@ -128,3 +128,4 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimu
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\60.png.ResolveUTIs.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\87.png.ResolveUTIs.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\Icon-58.png.ResolveUTIs.stamp
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\optimized\background.png
