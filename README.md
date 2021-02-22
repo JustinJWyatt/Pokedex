@@ -4,5 +4,7 @@ This project utilizes the pokeapi.co API to fetch Pokemon data. This project use
 
 I also used a CustomRenderer for the checkbox on the filter page.
 
+I wanted to store the page requests in a SQLite storage. When the user makes a request, it pulls it from the local storage if it is saved there. The Pokemon data is also stored in a separate table with a key to the page number so that everything loads in the same order as the API.
+
 ![Screenshots](https://github.com/JustinJWyatt/Pokedex/blob/main/Screenshots/Screenshots.png)
 
