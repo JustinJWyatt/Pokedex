@@ -133,4 +133,13 @@
       <Name>Pokedex</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Pokeball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settings.png" />
+  </ItemGroup>
 </Project>

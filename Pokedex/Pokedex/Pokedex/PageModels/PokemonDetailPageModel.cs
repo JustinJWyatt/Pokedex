@@ -3,6 +3,8 @@ using Pokedex.Models;
 using Pokedex.Services;
 using PropertyChanged;
 using System.Collections.ObjectModel;
+using Xamarin.Forms;
+using Pokedex.Utilities;
 
 namespace Pokedex.PageModels
 {
@@ -23,6 +25,13 @@ namespace Pokedex.PageModels
         public ObservableCollection<string> Sprites { get; set; }
         #endregion
 
+        #region Commands
+        public Command CloseCommand => new Command(async () =>
+        {
+            await CoreMethods.PopPageModel(true, true);
+        });
+        #endregion
+
         #region Overrides
         public override async void Init(object initData)
         {
@@ -30,15 +39,34 @@ namespace Pokedex.PageModels
 
             if (initData is string url)
             {
-                var pokemon = await _pokemonService.GetPokemonAsync(url);
+                try
+                {
+                    var pokemon = await _pokemonService.GetPokemonAsync(url);
 
-                if (pokemon != null)
-                {
-                    Pokemon = pokemon;
+                    if (pokemon != null)
+                    {
+                        Pokemon = pokemon;
+                        Pokemon.Name = Pokemon.Name.UppercaseFirst();
+                        Sprites = new ObservableCollection<string>()
+                        {
+                            Pokemon.Sprites.FrontDefault,
+                            Pokemon.Sprites.FrontShiny,
+                            Pokemon.Sprites.FrontShinyFemale,
+                            Pokemon.Sprites.BackDefault,
+                            Pokemon.Sprites.BackShiny,
+                            Pokemon.Sprites.BackFemale,
+                            Pokemon.Sprites.BackShinyFemale
+                        };
+                    }
+                    else
+                    {
+                        await CoreMethods.DisplayAlert("Error", "This Pokemon could not be fetched.", "Ok");
+                    }
                 }
-                else
+                catch (System.Exception)
                 {
-                    //TODO: Let the user know something went wrong
+                    await CoreMethods.DisplayAlert("Error", "Could not retrieve data.", "Ok");
+
                 }
             }
         }

@@ -14,4 +14,3 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstand
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\ref\Pokedex.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.pdb
-C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex\obj\Debug\netstandard2.0\Pokedex.csprojAssemblyReference.cache

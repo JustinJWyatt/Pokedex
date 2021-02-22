@@ -3,6 +3,6 @@
     public class PokemonTypeDefinition
     {
         public int Slot { get; set; }
-        public PokemonType Type { get; set; }
+        public PokeAPIPageResult Type { get; set; }
     }
 }

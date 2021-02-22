@@ -1,12 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Filter By Type"
              x:Class="Pokedex.Pages.PokemonTypeFilterPage">
+   
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="10,10,10,10">
+            <CollectionView ItemsSource="{Binding Types}"
+                            SelectionMode="None"
+                            VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" x:Name="CheckRow">
+                                <Label Text="{Binding Name}" />
+                                <CheckBox HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsChecked="{Binding Checked}" />
+                            </StackLayout>
+                            <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button TextColor="White"
+                        HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="Gray" 
+                        Text="ApplyFilters" 
+                        Command="{Binding ApplyFiltersCommand}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

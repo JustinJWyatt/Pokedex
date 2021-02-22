@@ -3,12 +3,15 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "Pokedex.Android.dll" comes first in this list. */
 		"Pokedex.Android.dll",
+		"DynamicData.dll",
 		"FormsViewGroup.dll",
 		"FreshIOC.dll",
 		"FreshMvvm.dll",
 		"Newtonsoft.Json.dll",
 		"Pokedex.dll",
 		"PropertyChanged.dll",
+		"ReactiveUI.dll",
+		"Splat.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",

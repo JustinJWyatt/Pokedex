@@ -1,11 +1,14 @@
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\Pokedex.iOS.exe
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\Pokedex.iOS.pdb
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\DynamicData.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\FreshIOC.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\FreshIOC.pdb
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\FreshMvvm.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\FreshMvvm.pdb
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\PropertyChanged.dll
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\ReactiveUI.dll
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\Splat.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\SQLite-net.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.nativelibrary.dll
@@ -79,6 +82,7 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimu
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\Icon20.png.ResolveUTIs.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\optimized\filter.png
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\optimized\
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\Pokedex.iOS.csprojAssemblyReference.cache
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\Pokedex.iOS.csproj.CoreCompileInputs.cache
@@ -86,12 +90,15 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimu
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\Pokedex.iOS.csproj.CopyComplete
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\Pokedex.iOS.exe
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\Pokedex.iOS.pdb
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\DynamicData.dll.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\FreshIOC.dll.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\FreshIOC.pdb.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\FreshMvvm.dll.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\FreshMvvm.pdb.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\Newtonsoft.Json.dll.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\PropertyChanged.dll.ReferenceCopyLocalPaths.stamp
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\ReactiveUI.dll.ReferenceCopyLocalPaths.stamp
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\Splat.dll.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\SQLite-net.dll.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\SQLitePCLRaw.batteries_v2.dll.ReferenceCopyLocalPaths.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\SQLitePCLRaw.nativelibrary.dll.ReferenceCopyLocalPaths.stamp
@@ -117,3 +124,5 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimu
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\Pokedex.iOS.pdb.DebugSymbolsProjectOutputGroupOutput.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\Entitlements.plist.NoneOutput.stamp
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\CopyFilesToMac\Info.plist.NoneOutput.stamp
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\optimized\Pokeball.png
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.iOS\obj\iPhoneSimulator\Debug\optimized\settings.png

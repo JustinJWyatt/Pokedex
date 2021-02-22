@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Pokedex.Utilities;
 using Pokedex.RepositoryModels;
+using Pokedex.ViewModels;
 
 namespace Pokedex.PageModels
 {
@@ -31,10 +32,11 @@ namespace Pokedex.PageModels
         #region Properties
         public List<PokemonRepository> Pokemon { get; set; } = new List<PokemonRepository>();
         public ObservableCollection<PokemonRepository> FilteredResults { get; set; } = new ObservableCollection<PokemonRepository>();
-        public ObservableCollection<PokemonType> TypeFilters { get; set; }
+        public List<PokemonTypeViewModel> Types { get; set; } = new List<PokemonTypeViewModel>();
         public PokeAPIPageRepository PokeAPIPage { get; set; }
         public int PageNumber { get; set; }
         public bool IsLoading { get; set; }
+        public string FilterText { get; set; } = "Filter";
         public PokemonRepository SelectedPokemon
         {
             get
@@ -55,36 +57,42 @@ namespace Pokedex.PageModels
         #region Commands
         public Command LoadMoreCommand => new Command(async () =>
         {
-            if (IsLoading)
+            if (!IsLoading && !string.IsNullOrEmpty(PokeAPIPage.Next))
             {
-                return;
-            }
+                IsLoading = !IsLoading;
 
-            if (!string.IsNullOrEmpty(PokeAPIPage.Next))
-            {
-                IsLoading = true;
-
-                await GetPokeAPIPageAsync(PokeAPIPage.Next);
-            }
-            else
-            {
-                //TODO: Let the collection view know there is no more to load
+                try
+                {
+                    await GetPokeAPIPageAsync(PokeAPIPage.Next);
+                }
+                catch (System.Exception)
+                {
+                    await CoreMethods.DisplayAlert("Error", "Could not retrieve data", "Ok");
+                }
             }
         });
 
-        public Command ShowPokemonDetailCommnad => new Command<PokemonRepository>(async (pokemon) =>
+        public Command ShowPokemonDetailCommand => new Command<PokemonRepository>(async (pokemon) =>
         {
             await CoreMethods.PushPageModel<PokemonDetailPageModel>(pokemon.Url, true, true);
         });
 
         public Command PokemonSelectedCommand => new Command<PokemonRepository>((pokemon) =>
         {
-            ShowPokemonDetailCommnad.Execute(pokemon);
+            ShowPokemonDetailCommand.Execute(pokemon);
         });
 
         public Command PokemonFavoriteCommand => new Command<PokemonRepository>((pokemon) =>
         {
             //TODO: Toggle favorite icon color
+        });
+
+        public Command ShowPokemonFilterCommand => new Command(async () =>
+        {
+            if (FilteredResults.Any())
+            {
+                await CoreMethods.PushPageModel<PokemonTypeFilterPageModel>(Types, true, true);
+            }
         });
         #endregion
 
@@ -135,14 +143,26 @@ namespace Pokedex.PageModels
 
             await _localRepositoryService.SavePokemonAsync(repositories);
 
-            //TODO: Add exception handling
-
             Device.BeginInvokeOnMainThread(() =>
             {
                 Pokemon.AddRange(repositories);
+
+                //TODO: Apply filters
+
                 FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
                 IsLoading = false;
             });
+        }
+
+        public async Task GetPokemonTypesAsync()
+        {
+            var pokeAPIPage = await _pokemonService.GetPokeAPIPageAsync(PokeAPI.Types);
+            Types = pokeAPIPage.Results.Select(result => new PokemonTypeViewModel
+            {
+                Name = result.Name.UppercaseFirst(),
+                Checked = false
+
+            }).ToList();
         }
         #endregion
 
@@ -151,30 +171,41 @@ namespace Pokedex.PageModels
         {
             base.Init(initData);
 
+            GetPokemonTypesAsync().FireAndForget();
+
             IsLoading = true;
 
             if (PokeAPIPage == null)
             {
-                var pokeAPIPages = await _localRepositoryService.GetPokeAPIRepositoryAsync();
+                //TODO: Run forget types in background
 
-                if (pokeAPIPages.Count == 0)
+                try
                 {
-                    await GetPokeAPIPageAsync(PokeAPI.BaseUrl);
-                }
-                else
-                {
-                    PokeAPIPage = pokeAPIPages.Last();
+                    var pokeAPIPages = await _localRepositoryService.GetPokeAPIRepositoryAsync();
 
-                    PageNumber = PokeAPIPage.PageNumber;
-
-                    for (int i = 1; i <= PageNumber; i++)
+                    if (pokeAPIPages.Count == 0)
                     {
-                        Pokemon.AddRange(await _localRepositoryService.GetPokemonAsync(i));
+                        await GetPokeAPIPageAsync(PokeAPI.Pokemon);
                     }
+                    else
+                    {
+                        PokeAPIPage = pokeAPIPages.Last();
 
-                    FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
+                        PageNumber = PokeAPIPage.PageNumber;
 
-                    IsLoading = false;
+                        for (int i = 1; i <= PageNumber; i++)
+                        {
+                            Pokemon.AddRange(await _localRepositoryService.GetPokemonAsync(i));
+                        }
+
+                        FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
+
+                        IsLoading = false;
+                    }
+                }
+                catch (System.Exception)
+                {
+                    await CoreMethods.DisplayAlert("Error", "Could not retrieve data", "Ok");
                 }
             }
         }
@@ -183,9 +214,9 @@ namespace Pokedex.PageModels
         {
             base.ReverseInit(returnedData);
 
-            if (returnedData is List<PokemonType> typeFilters)
+            if (returnedData is List<PokemonTypeViewModel> typeFilters)
             {
-                TypeFilters = new ObservableCollection<PokemonType>(typeFilters);
+                Types = typeFilters;
 
                 //TODO: Filtered results from list of types
             }

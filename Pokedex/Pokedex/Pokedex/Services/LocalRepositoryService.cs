@@ -4,7 +4,6 @@ using Pokedex.Constants;
 using System.Threading.Tasks;
 using Pokedex.RepositoryModels;
 using System.Collections.Generic;
-using Pokedex.Models;
 
 namespace Pokedex.Services
 {

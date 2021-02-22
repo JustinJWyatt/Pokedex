@@ -9,13 +9,10 @@ namespace Pokedex.Services
     public class PokemonService : IPokemonService
     {
         private readonly IPokeAPIClient _pokeAPIClient;
-        private readonly ILocalRepositoryService _localRepositoryService;
 
-        public PokemonService(IPokeAPIClient pokeAPIClient, 
-                              ILocalRepositoryService localRepositoryService)
+        public PokemonService(IPokeAPIClient pokeAPIClient)
         {
             _pokeAPIClient = pokeAPIClient;
-            _localRepositoryService = localRepositoryService;
         }
 
         public Task<PokeAPIPage> GetPokeAPIPageAsync(string uri)

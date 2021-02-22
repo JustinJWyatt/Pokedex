@@ -14,9 +14,13 @@ namespace Pokedex
 
             ConfigureIOC();
 
+            Init();
+        }
+
+        private void Init()
+        {
             var page = FreshPageModelResolver.ResolvePageModel<MainPageModel>();
-            var basicNavContainer = new FreshNavigationContainer(page);
-            MainPage = basicNavContainer;
+            MainPage = new FreshNavigationContainer(page);
         }
 
         private void ConfigureIOC()

@@ -122,6 +122,10 @@
               "target": "Package",
               "version": "[3.3.1, )"
             },
+            "ReactiveUI": {
+              "target": "Package",
+              "version": "[13.1.1, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pokedex.Constants
+﻿namespace Pokedex.Constants
 {
     public static class PokeAPI
     {
-        public const string BaseUrl = "https://pokeapi.co/api/v2/pokemon/";
+        public const string Pokemon = "https://pokeapi.co/api/v2/pokemon/";
+        public const string Types = "https://pokeapi.co/api/v2/type/";
     }
 }

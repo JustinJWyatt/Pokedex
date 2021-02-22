@@ -43,6 +43,7 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\res\mipmap-xxxhdpi\launcher_foreground.png
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\uploadflags.txt
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\resolvedassemblies.hash
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\DynamicData.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\FormsViewGroup.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\FormsViewGroup.pdb
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\FreshIOC.dll
@@ -63,6 +64,8 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\Pokedex.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\Pokedex.pdb
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\PropertyChanged.dll
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\ReactiveUI.dll
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\Splat.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\SQLite-net.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\SQLitePCLRaw.batteries_v2.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\SQLitePCLRaw.core.dll
@@ -100,6 +103,7 @@ C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\System.Runtime.Serialization.pdb
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\System.ServiceModel.Internals.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\System.ServiceModel.Internals.pdb
+C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\System.Threading.Tasks.Extensions.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\System.Transactions.dll
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\System.Transactions.pdb
 C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\android\assets\System.Web.Services.dll

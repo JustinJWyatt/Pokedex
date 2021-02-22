@@ -5,23 +5,46 @@
              ios:Page.UseSafeArea="true"
              Title="Pokedex"
              x:Class="Pokedex.Pages.MainPage">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
+            <BoxView HorizontalOptions="StartAndExpand" />
+            <Image Source="Pokeball.png" HorizontalOptions="Center" />
+            <Image Source="settings.png" HorizontalOptions="EndAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowPokemonFilterCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
 
-    <StackLayout Orientation="Vertical" Margin="10,10,10,10">
-        <CollectionView SelectedItem="{Binding SelectedPokemon}"
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Margin="0,10,0,10">
+            <CollectionView SelectedItem="{Binding SelectedPokemon}"
                         ItemsSource="{Binding FilteredResults}"
-                        ItemSizingStrategy="MeasureAllItems"
+                        ItemSizingStrategy="MeasureFirstItem"
                         SelectionMode="Single"
-                        RemainingItemsThreshold="5"
+                        RemainingItemsThreshold="2"
                         RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
                         VerticalOptions="FillAndExpand">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="{Binding Image}" />
-                        <Label Text="{Binding Name}" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                                <Image HeightRequest="60" WidthRequest="60">
+                                    <Image.Source>
+                                        <UriImageSource Uri="{Binding Image}" CacheValidity="2" CachingEnabled="True"/>
+                                    </Image.Source>
+                                </Image>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Name}" FontSize="Large" VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                            <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
