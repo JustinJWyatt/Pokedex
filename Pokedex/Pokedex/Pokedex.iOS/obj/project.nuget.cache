@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dwJizS6TUl+yek17qfUvA7VE6mJkEjs+Fy3oqWAC69t5dSbfuwxZkUEtDVPz0zNG/Q27QYt/UTRc1pb321ZeEA==",
+  "dgSpecHash": "6dQz6y7/AzzUsGuQkwiUA/5B0rRjf9W33cJ+MOY3sXab4Ag0Zkh10J0bb+h/Y3ltIZQnYMBykzNNkssBn50kVA==",
   "success": true,
   "projectFilePath": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex.iOS\\Pokedex.iOS.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,10 @@
     "C:\\Users\\jwyatt\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\jwyatt\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
     "C:\\Users\\jwyatt\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\jwyatt\\.nuget\\packages\\webp.touch\\1.0.8\\webp.touch.1.0.8.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\jwyatt\\.nuget\\packages\\xamarin.ffimageloading\\2.4.11.982\\xamarin.ffimageloading.2.4.11.982.nupkg.sha512",
+    "C:\\Users\\jwyatt\\.nuget\\packages\\xamarin.ffimageloading.forms\\2.4.11.982\\xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512"
   ],
   "logs": []
