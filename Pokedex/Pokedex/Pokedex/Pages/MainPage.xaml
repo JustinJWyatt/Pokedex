@@ -4,8 +4,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              ios:Page.UseSafeArea="true"
              Title="Pokedex"
+             xmlns:converters="clr-namespace:Pokedex.Converters"
              x:Class="Pokedex.Pages.MainPage">
-    
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="inverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
             <BoxView HorizontalOptions="StartAndExpand" />
@@ -44,6 +51,14 @@
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <StackLayout Orientation="Vertical">
+                        <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"/>
+                        <Button Text="Load More" 
+                            Command="{Binding LoadMoreCommand}" 
+                            IsVisible="{Binding IsLoading, Converter={StaticResource inverseBoolConverter}}" />
+                    </StackLayout>
+                </CollectionView.Footer>
             </CollectionView>
         </StackLayout>
     </ContentPage.Content>
