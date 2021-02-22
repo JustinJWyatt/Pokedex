@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ND3G2FMJ+712Jio/lb78r1HPPxBPKTj3m4Fav+oNyJwFJA2e46djjy30ALogsqO8UIokFxf79MWmEYSAy/HRMQ==",
+  "dgSpecHash": "dwJizS6TUl+yek17qfUvA7VE6mJkEjs+Fy3oqWAC69t5dSbfuwxZkUEtDVPz0zNG/Q27QYt/UTRc1pb321ZeEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex.iOS\\Pokedex.iOS.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\jwyatt\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\jwyatt\\.nuget\\packages\\propertychanged.fody\\3.3.1\\propertychanged.fody.3.3.1.nupkg.sha512",
     "C:\\Users\\jwyatt\\.nuget\\packages\\reactiveui\\13.1.1\\reactiveui.13.1.1.nupkg.sha512",
+    "C:\\Users\\jwyatt\\.nuget\\packages\\saturdaymp.xplugins.ios.bemcheckbox\\1.4.3\\saturdaymp.xplugins.ios.bemcheckbox.1.4.3.nupkg.sha512",
     "C:\\Users\\jwyatt\\.nuget\\packages\\splat\\10.0.1\\splat.10.0.1.nupkg.sha512",
     "C:\\Users\\jwyatt\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\jwyatt\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",

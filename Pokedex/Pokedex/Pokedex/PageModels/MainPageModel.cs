@@ -72,14 +72,28 @@ namespace Pokedex.PageModels
             }
         });
 
-        public Command ShowPokemonDetailCommand => new Command<PokemonRepository>(async (pokemon) =>
+        public Command ShowPokemonDetailCommand => new Command<string>(async (url) =>
         {
-            await CoreMethods.PushPageModel<PokemonDetailPageModel>(pokemon.Url, true, true);
+            var result = await Task.WhenAll(_pokemonService.GetPokemonAsync(url));
+            var pokemon = result[0];
+            pokemon.Name = pokemon.Name.UppercaseFirst();
+            pokemon.Gallery =  new List<string>()
+            {
+                pokemon.Sprites.FrontDefault,
+                pokemon.Sprites.FrontShiny,
+                pokemon.Sprites.FrontShinyFemale,
+                pokemon.Sprites.BackDefault,
+                pokemon.Sprites.BackShiny,
+                pokemon.Sprites.BackFemale,
+                pokemon.Sprites.BackShinyFemale
+            }.Where(x => !string.IsNullOrEmpty(x)).ToList();
+
+            await CoreMethods.PushPageModel<PokemonDetailPageModel>(pokemon, true, true);
         });
 
         public Command PokemonSelectedCommand => new Command<PokemonRepository>((pokemon) =>
         {
-            ShowPokemonDetailCommand.Execute(pokemon);
+            ShowPokemonDetailCommand.Execute(pokemon.Url);
         });
 
         public Command PokemonFavoriteCommand => new Command<PokemonRepository>((pokemon) =>
@@ -101,7 +115,6 @@ namespace Pokedex.PageModels
         {
             await _localRepositoryService.SavePokeAPIRepositoryAsync(pokeAPIPage);
         }
-
         public async Task GetPokeAPIPageAsync(string uri)
         {
             var pokeAPIPage = await _pokemonService.GetPokeAPIPageAsync(uri);
@@ -177,8 +190,6 @@ namespace Pokedex.PageModels
 
             if (PokeAPIPage == null)
             {
-                //TODO: Run forget types in background
-
                 try
                 {
                     var pokeAPIPages = await _localRepositoryService.GetPokeAPIRepositoryAsync();

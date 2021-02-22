@@ -42,6 +42,10 @@
       "frameworks": {
         "xamarinios10": {
           "dependencies": {
+            "SaturdayMP.XPlugins.iOS.BEMCheckBox": {
+              "target": "Package",
+              "version": "[1.4.3, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"

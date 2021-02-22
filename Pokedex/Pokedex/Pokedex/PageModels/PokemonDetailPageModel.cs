@@ -5,6 +5,8 @@ using PropertyChanged;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Pokedex.Utilities;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Pokedex.PageModels
 {
@@ -37,36 +39,19 @@ namespace Pokedex.PageModels
         {
             base.Init(initData);
 
-            if (initData is string url)
+            if (initData is Pokemon pokemon)
             {
-                try
+                if (pokemon != null)
                 {
-                    var pokemon = await _pokemonService.GetPokemonAsync(url);
-
-                    if (pokemon != null)
+                    Device.BeginInvokeOnMainThread(() =>
                     {
                         Pokemon = pokemon;
-                        Pokemon.Name = Pokemon.Name.UppercaseFirst();
-                        Sprites = new ObservableCollection<string>()
-                        {
-                            Pokemon.Sprites.FrontDefault,
-                            Pokemon.Sprites.FrontShiny,
-                            Pokemon.Sprites.FrontShinyFemale,
-                            Pokemon.Sprites.BackDefault,
-                            Pokemon.Sprites.BackShiny,
-                            Pokemon.Sprites.BackFemale,
-                            Pokemon.Sprites.BackShinyFemale
-                        };
-                    }
-                    else
-                    {
-                        await CoreMethods.DisplayAlert("Error", "This Pokemon could not be fetched.", "Ok");
-                    }
+                        Sprites = new ObservableCollection<string>(pokemon.Gallery);
+                    });
                 }
-                catch (System.Exception)
+                else
                 {
-                    await CoreMethods.DisplayAlert("Error", "Could not retrieve data.", "Ok");
-
+                    await CoreMethods.DisplayAlert("Error", "This Pokemon could not be fetched.", "Ok");
                 }
             }
         }

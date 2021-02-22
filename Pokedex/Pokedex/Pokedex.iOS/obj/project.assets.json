@@ -76,6 +76,15 @@
           "lib/xamarinios10/ReactiveUI.dll": {}
         }
       },
+      "SaturdayMP.XPlugins.iOS.BEMCheckBox/1.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
+        }
+      },
       "Splat/10.0.1": {
         "type": "package",
         "compile": {
@@ -426,6 +435,15 @@
         },
         "runtime": {
           "lib/xamarinios10/ReactiveUI.dll": {}
+        }
+      },
+      "SaturdayMP.XPlugins.iOS.BEMCheckBox/1.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
         }
       },
       "Splat/10.0.1": {
@@ -780,6 +798,15 @@
           "lib/xamarinios10/ReactiveUI.dll": {}
         }
       },
+      "SaturdayMP.XPlugins.iOS.BEMCheckBox/1.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
+        }
+      },
       "Splat/10.0.1": {
         "type": "package",
         "compile": {
@@ -1130,6 +1157,15 @@
         },
         "runtime": {
           "lib/xamarinios10/ReactiveUI.dll": {}
+        }
+      },
+      "SaturdayMP.XPlugins.iOS.BEMCheckBox/1.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll": {}
         }
       },
       "Splat/10.0.1": {
@@ -1569,6 +1605,18 @@
         "lib/xamarintvos10/ReactiveUI.xml",
         "reactiveui.13.1.1.nupkg.sha512",
         "reactiveui.nuspec"
+      ]
+    },
+    "SaturdayMP.XPlugins.iOS.BEMCheckBox/1.4.3": {
+      "sha512": "f1xPkh5McAWUjynV4FC1Du3/bGmZ/MbCdoPPaKJUPpWpSqt7DczoJ+MlAHlIQxnWWUhKzCoZB6/TubdXVSlNDw==",
+      "type": "package",
+      "path": "saturdaymp.xplugins.ios.bemcheckbox/1.4.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Xamarin.iOS10/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll",
+        "saturdaymp.xplugins.ios.bemcheckbox.1.4.3.nupkg.sha512",
+        "saturdaymp.xplugins.ios.bemcheckbox.nuspec"
       ]
     },
     "Splat/10.0.1": {
@@ -2213,6 +2261,7 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "Pokedex >= 1.0.0",
+      "SaturdayMP.XPlugins.iOS.BEMCheckBox >= 1.4.3",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 4.6.0.1141"
     ]
@@ -2259,6 +2308,10 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "SaturdayMP.XPlugins.iOS.BEMCheckBox": {
+            "target": "Package",
+            "version": "[1.4.3, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.3.2, )"
