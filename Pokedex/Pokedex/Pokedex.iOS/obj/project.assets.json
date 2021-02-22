@@ -2218,39 +2218,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jwyatt\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/justinwyatt/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex.iOS\\Pokedex.iOS.csproj",
+      "projectUniqueName": "/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.iOS/Pokedex.iOS.csproj",
       "projectName": "Pokedex.iOS",
-      "projectPath": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex.iOS\\Pokedex.iOS.csproj",
-      "packagesPath": "C:\\Users\\jwyatt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex.iOS\\obj\\",
+      "projectPath": "/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.iOS/Pokedex.iOS.csproj",
+      "packagesPath": "/Users/justinwyatt/.nuget/packages/",
+      "outputPath": "/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\jwyatt\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/justinwyatt/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex\\Pokedex.csproj": {
-              "projectPath": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex\\Pokedex.csproj"
+            "/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex/Pokedex.csproj": {
+              "projectPath": "/Users/justinwyatt/Documents/Github/Pokedex/Pokedex/Pokedex/Pokedex/Pokedex.csproj"
             }
           }
         }

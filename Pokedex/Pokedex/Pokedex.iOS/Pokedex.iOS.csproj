@@ -129,7 +129,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Pokedex\Pokedex.csproj">
-      <Project>{736586C8-1593-43C0-A6A3-C5DBDCCE9045}</Project>
+      <Project>{3B61ACE1-019E-4838-8D9F-0F1B0A3524A3}</Project>
       <Name>Pokedex</Name>
     </ProjectReference>
   </ItemGroup>

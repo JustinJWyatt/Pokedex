@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{85507471-8B2C-4E60-8A8B-2B7B9FB79DEC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pokedex/Pokedex.Android/Resources/values/styles.xml">
+    <Files>
+      <File FileName="Pokedex/Pokedex.Android/Resources/layout/Tabbar.xml" Line="1" Column="1" />
+      <File FileName="Pokedex/Pokedex.Android/SplashActivity.cs" Line="24" Column="10" />
+      <File FileName="Pokedex/Pokedex.Android/MainActivity.cs" Line="12" Column="105" />
+      <File FileName="Pokedex/Pokedex.Android/Resources/drawable/layerlist.xml" Line="8" Column="40" />
+      <File FileName="Pokedex/Pokedex.Android/Resources/values/colors.xml" Line="6" Column="46" />
+      <File FileName="Pokedex/Pokedex.Android/Resources/values/styles.xml" Line="5" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Pokedex" expanded="True">
+            <Node name="Pokedex" expanded="True">
+              <Node name="PageModels" expanded="True" />
+            </Node>
+            <Node name="Pokedex.Android" expanded="True">
+              <Node name="Assets" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="drawable" expanded="True" />
+                <Node name="layout" expanded="True" />
+                <Node name="mipmap-anydpi-v26" expanded="True" />
+                <Node name="values" expanded="True">
+                  <Node name="colors.xml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Pokedex.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5E32712D-DF85-4EA0-A37B-DB99A63E0C98" />
+  <MonoDevelop.Ide.ItemProperties.Pokedex.Android AndroidDesignerPreferredTheme="MainTheme" AndroidDesignerPreferredDevice="Nexus 4" TriggeredFromHotReload="False" PreferredExecutionTarget="Android.pixel_3_xl_q_10_0_-_api_29" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
