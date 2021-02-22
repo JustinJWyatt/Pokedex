@@ -19,7 +19,9 @@ android.support.v7.widget.Toolbar;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\
 android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
+bitmap;obj\Debug\90\res\drawable\layerlist.xml
 cache-path;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+color;obj\Debug\90\res\drawable\layerlist.xml
 color;obj\Debug\90\res\values\colors.xml
 external-cache-path;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -27,6 +29,9 @@ foreground;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
 FrameLayout;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\40\jl\res\layout\bottomtablayout.xml
 item;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\40\jl\res\values\styles.xml
+item;obj\Debug\90\res\drawable\layerlist.xml
+item;obj\Debug\90\res\values\styles.xml
+layer-list;obj\Debug\90\res\drawable\layerlist.xml
 LinearLayout;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\40\jl\res\layout\bottomtablayout.xml
 paths;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\39\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 resources;C:\Users\jwyatt\Documents\git\Pokedex\Pokedex\Pokedex\Pokedex.Android\obj\Debug\90\lp\40\jl\res\values\styles.xml
