@@ -5,7 +5,7 @@
              ios:Page.UseSafeArea="true"
              Title="{Binding Pokemon.Name}"
              x:Class="Pokedex.Pages.PokemonDetailPage">
-
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Close" Order="Default" Priority="0" Command="{Binding CloseCommand}" />
     </ContentPage.ToolbarItems>
@@ -13,38 +13,54 @@
     <ContentPage.Content>
         <StackLayout>
             <Image HeightRequest="425" Source="{Binding Pokemon.Sprites.Other.OfficialArtwork.FrontDefault}" Aspect="AspectFill" />
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Id:" FontSize="Title" />
-                <Label Text="{Binding Pokemon.Id}" FontSize="Title" />
+
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Id:" FontSize="Title" />
+                    <Label Text="{Binding Pokemon.Id}" FontSize="Title" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Weight:" FontSize="Title" />
+                    <Label Text="{Binding Pokemon.Weight}" FontSize="Title" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Height:" FontSize="Title" />
+                    <Label Text="{Binding Pokemon.Height}" FontSize="Title" />
+                </StackLayout>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Weight:" FontSize="Title" />
-                <Label Text="{Binding Pokemon.Weight}" FontSize="Title" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Height:" FontSize="Title" />
-                <Label Text="{Binding Pokemon.Height}" FontSize="Title" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                
-            </StackLayout>
-            <CollectionView ItemsSource="{Binding Sprites}">
+
+            <Label Text="Types" FontSize="Title"/>
+            <CollectionView ItemsSource="{Binding Pokemon.Types}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Image Aspect="AspectFit" HeightRequest="100" WidthRequest="100">
-                            <Image.Source>
-                                <UriImageSource Uri="{Binding .}" CacheValidity="2" CachingEnabled="True" />
-                            </Image.Source>
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding ShowImageCommand}"/>
-                            </Image.GestureRecognizers>
-                        </Image>
-                    </DataTemplate>
+                        <StackLayout>
+                            <Label Text="{Binding Type.Name}"/>
+                        </StackLayout>
+                    </DataTemplate>                    
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <ScrollView Orientation="Horizontal">
+                <CollectionView ItemsSource="{Binding Sprites}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding .}" CacheValidity="2" CachingEnabled="True" />
+                                </Image.Source>
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ShowImageCommand}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

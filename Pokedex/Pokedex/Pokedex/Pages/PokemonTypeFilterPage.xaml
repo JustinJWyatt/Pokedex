@@ -37,8 +37,8 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Button TextColor="White"
                         HorizontalOptions="FillAndExpand"  
-                        BackgroundColor="Gray" 
-                        Text="ApplyFilters" 
+                        BackgroundColor="#ED1B24" 
+                        Text="Apply Filters" 
                         Command="{Binding ApplyFiltersCommand}"/>
             </StackLayout>
         </StackLayout>

@@ -36,7 +36,6 @@ namespace Pokedex.PageModels
         public PokeAPIPageRepository PokeAPIPage { get; set; }
         public int PageNumber { get; set; }
         public bool IsLoading { get; set; }
-        public string FilterText { get; set; } = "Filter";
         public PokemonRepository SelectedPokemon
         {
             get
@@ -111,6 +110,18 @@ namespace Pokedex.PageModels
         #endregion
 
         #region Methods
+        private void ApplyFilters()
+        {
+            FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
+
+            if (Types.Any() && Types.Any(x => x.Checked))
+            {
+                //TODO: Apply filters
+                var names = Types.Where(x => x.Checked).Select(x => x.Name).ToList();
+                var p = Pokemon.Where(x => x.Types.Split(new char[] { ',' }).ToList().Intersect(names).Any()).ToList();
+            }
+        }
+
         public async Task SavePageAsync(PokeAPIPageRepository pokeAPIPage)
         {
             await _localRepositoryService.SavePokeAPIRepositoryAsync(pokeAPIPage);
@@ -151,7 +162,8 @@ namespace Pokedex.PageModels
                 Weight = pokemon.Weight,
                 Name = pokemon.Name.UppercaseFirst(),
                 Image = pokemon.Sprites.Other.OfficialArtwork.FrontDefault,
-                Url = results.FirstOrDefault(x => x.Name == pokemon.Name).Url
+                Url = results.FirstOrDefault(x => x.Name == pokemon.Name).Url,
+                Types = string.Join(",", pokemon.Types.Select(x => x.Type.Name).ToArray())
             });
 
             await _localRepositoryService.SavePokemonAsync(repositories);
@@ -159,10 +171,7 @@ namespace Pokedex.PageModels
             Device.BeginInvokeOnMainThread(() =>
             {
                 Pokemon.AddRange(repositories);
-
-                //TODO: Apply filters
-
-                FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
+                ApplyFilters();
                 IsLoading = false;
             });
         }
@@ -228,8 +237,7 @@ namespace Pokedex.PageModels
             if (returnedData is List<PokemonTypeViewModel> typeFilters)
             {
                 Types = typeFilters;
-
-                //TODO: Filtered results from list of types
+                ApplyFilters();
             }
         }
         #endregion

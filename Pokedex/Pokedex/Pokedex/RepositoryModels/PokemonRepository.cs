@@ -15,5 +15,6 @@ namespace Pokedex.RepositoryModels
         public string Image { get; set; }
         public string Url { get; set; }
         public bool Favorite { get; set; }
+        public string Types { get; set; }
     }
 }

@@ -13,15 +13,6 @@ namespace Pokedex.PageModels
     [AddINotifyPropertyChangedInterface]
     public class PokemonDetailPageModel : FreshBasePageModel
     {
-        #region Members
-        private readonly IPokemonService _pokemonService;
-        #endregion
-
-        public PokemonDetailPageModel(IPokemonService pokemonService)
-        {
-            _pokemonService = pokemonService;
-        }
-
         #region Properties
         public Pokemon Pokemon { get; set; }
         public ObservableCollection<string> Sprites { get; set; }
