@@ -66,6 +66,8 @@ namespace Pokedex.PageModels
                 }
                 catch (System.Exception)
                 {
+                    IsLoading = !IsLoading;
+
                     await CoreMethods.DisplayAlert("Error", "Could not retrieve data", "Ok");
                 }
             }
@@ -74,7 +76,7 @@ namespace Pokedex.PageModels
         public Command ShowPokemonDetailCommand => new Command<string>(async (url) =>
         {
             var result = await Task.WhenAll(_pokemonService.GetPokemonAsync(url));
-            var pokemon = result[0];
+            var pokemon = result[0]; //TODO: Optimize async loading
             pokemon.Name = pokemon.Name.UppercaseFirst();
             pokemon.Gallery =  new List<string>()
             {
@@ -85,7 +87,10 @@ namespace Pokedex.PageModels
                 pokemon.Sprites.BackShiny,
                 pokemon.Sprites.BackFemale,
                 pokemon.Sprites.BackShinyFemale
-            }.Where(x => !string.IsNullOrEmpty(x)).ToList();
+
+                //TODO: Add other sprites
+
+            }.Where(sprite => !string.IsNullOrEmpty(sprite)).ToList();
 
             await CoreMethods.PushPageModel<PokemonDetailPageModel>(pokemon, true, true);
         });
@@ -107,7 +112,7 @@ namespace Pokedex.PageModels
 
         public Command ShowPokemonFilterCommand => new Command(async () =>
         {
-            if (FilteredResults.Any())
+            if (Pokemon.Any())
             {
                 await CoreMethods.PushPageModel<PokemonTypeFilterPageModel>(Types, true, true);
             }
@@ -117,22 +122,24 @@ namespace Pokedex.PageModels
         #region Methods
         private void ApplyFilters()
         {
-            FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
+            FilteredResults = new ObservableCollection<PokemonRepository>();
 
-            if (Types.Any() && Types.Any(x => x.Checked))
+            if (Types.Any() && Types.Any(type => type.Checked))
             {
                 var results = new List<PokemonRepository>();
-                var names = Types.Where(x => x.Checked).Select(x => x.Name.ToLower()).ToList();
-                Pokemon.ForEach((p) =>
+                var filteredTypes = Types.Where(type => type.Checked).Select(type => type.Name.ToLower()).ToList();
+                Pokemon.ForEach((pokemon) =>
                 {
-                    var types = p.Types.Split(new char[] { ',' }).Select(y => y.ToLower());
-                    if (names.Intersect(types).Any())
+                    var types = pokemon.Types.Split(new char[] { ',' }).Select(type => type.ToLower());
+                    if (filteredTypes.Intersect(types).Any())
                     {
-                        results.Add(p);
+                        FilteredResults.Add(pokemon);
                     }
                 });
-
-                FilteredResults = new ObservableCollection<PokemonRepository>(results);
+            }
+            else
+            {
+                FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
             }
         }
 
@@ -162,8 +169,7 @@ namespace Pokedex.PageModels
 
         public async Task SavePokemonAsync(IEnumerable<PokeAPIPageResult> results)
         {
-            var request = results.Select(result => result.Url)
-                                 .ToList()
+            var request = results.Select(result => result.Url).ToList()
                                  .Select(_pokemonService.GetPokemonAsync);
 
             var response = await Task.WhenAll(request);
@@ -176,8 +182,8 @@ namespace Pokedex.PageModels
                 Weight = pokemon.Weight,
                 Name = pokemon.Name.UppercaseFirst(),
                 Image = pokemon.Sprites.Other.OfficialArtwork.FrontDefault,
-                Url = results.FirstOrDefault(x => x.Name == pokemon.Name).Url,
-                Types = string.Join(",", pokemon.Types.Select(x => x.Type.Name).ToArray())
+                Url = results.FirstOrDefault(result => result.Name == pokemon.Name).Url,
+                Types = string.Join(",", pokemon.Types.Select(type => type.Type.Name).ToArray())
             });
 
             await _localRepositoryService.SavePokemonAsync(repositories);
@@ -209,12 +215,12 @@ namespace Pokedex.PageModels
 
             GetPokemonTypesAsync().FireAndForget();
 
-            IsLoading = true;
-
             if (PokeAPIPage == null)
             {
                 try
                 {
+                    IsLoading = true;
+
                     var pokeAPIPages = await _localRepositoryService.GetPokeAPIRepositoryAsync();
 
                     if (pokeAPIPages.Count == 0)
@@ -239,6 +245,8 @@ namespace Pokedex.PageModels
                 }
                 catch (System.Exception)
                 {
+                    IsLoading = false;
+
                     await CoreMethods.DisplayAlert("Error", "Could not retrieve data", "Ok");
                 }
             }

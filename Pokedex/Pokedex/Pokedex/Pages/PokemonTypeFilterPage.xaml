@@ -27,7 +27,6 @@
                                     WidthRequest="30" 
                                     HeightRequest="30"
                                     Margin="0,5,10,5"/>
-                                <!--<CheckBox HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" IsChecked="{Binding Checked}" />-->
                             </StackLayout>
                             <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
                         </StackLayout>
