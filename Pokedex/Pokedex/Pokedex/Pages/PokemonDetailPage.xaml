@@ -5,11 +5,14 @@
              ios:Page.UseSafeArea="true"
              xmlns:converters="clr-namespace:Pokedex.Converters"
              Title="{Binding Pokemon.Name}"
+             ios:Page.LargeTitleDisplay="Always"
+             ios:NavigationPage.PrefersLargeTitles="true"
              x:Class="Pokedex.Pages.PokemonDetailPage">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:GramToPoundConverter x:Key="gramToPoundConverter" />
+            <converters:DecimetersToFeetConverter x:Key="decimetersToFeetConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -37,7 +40,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-                            <Label Text="Number" FontSize="Title" TextColor="White" />
+                            <Label Text="Rank" FontSize="Title" TextColor="White" />
                             <Label Text="{Binding Pokemon.Id, StringFormat='#{0}'}" FontSize="Title" TextColor="Black" />
                         </StackLayout>
                         <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1">
@@ -46,7 +49,7 @@
                         </StackLayout>
                         <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0">
                             <Label Text="Height" FontSize="Title" TextColor="White" />
-                            <Label Text="{Binding Pokemon.Height}" FontSize="Title" TextColor="Black" />
+                            <Label Text="{Binding Pokemon.Height, Converter={StaticResource decimetersToFeetConverter}}" FontSize="Title" TextColor="Black" />
                         </StackLayout>
                         <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                             <Label Text="Type" FontSize="Title" TextColor="White" Margin="0,0,0,10" />
