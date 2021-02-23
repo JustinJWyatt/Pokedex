@@ -127,7 +127,8 @@ namespace Pokedex.PageModels
             if (Types.Any() && Types.Any(type => type.Checked))
             {
                 var results = new List<PokemonRepository>();
-                var filteredTypes = Types.Where(type => type.Checked).Select(type => type.Name.ToLower()).ToList();
+                var filteredTypes = Types.Where(type => type.Checked).Select(type => type.Name.ToLower());
+                //var results = Pokemon.Where(pokemon => filteredTypes.Intersect(pokemon.Types.ToList()).Any()).ToList();
                 Pokemon.ForEach((pokemon) =>
                 {
                     var types = pokemon.Types.Split(new char[] { ',' }).Select(type => type.ToLower());

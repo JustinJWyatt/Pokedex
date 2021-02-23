@@ -3,9 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
+             xmlns:converters="clr-namespace:Pokedex.Converters"
              Title="{Binding Pokemon.Name}"
              x:Class="Pokedex.Pages.PokemonDetailPage">
-    
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:GramToPoundConverter x:Key="gramToPoundConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Close" Order="Default" Priority="0" Command="{Binding CloseCommand}" />
     </ContentPage.ToolbarItems>
@@ -18,53 +25,51 @@
                 </Image.Source>
             </Image>
 
-            <StackLayout Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Id:" FontSize="Title" />
-                    <Label Text="{Binding Pokemon.Id}" FontSize="Title" />
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Weight:" FontSize="Title" />
-                    <Label Text="{Binding Pokemon.Weight}" FontSize="Title" />
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Height:" FontSize="Title" />
-                    <Label Text="{Binding Pokemon.Height}" FontSize="Title" />
-                </StackLayout>
-            </StackLayout>
-
-            <Label Text="Types" FontSize="Title"/>
-            <CollectionView ItemsSource="{Binding Pokemon.Types}">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Label Text="{Binding Type.Name}"/>
+            <StackLayout>
+                <Frame Margin="15,0,15,0" HasShadow="False" BackgroundColor="CornflowerBlue" CornerRadius="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"  />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                            <Label Text="Number" FontSize="Title" TextColor="White" />
+                            <Label Text="{Binding Pokemon.Id, StringFormat='#{0}'}" FontSize="Title" TextColor="Black" />
                         </StackLayout>
-                    </DataTemplate>                    
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <ScrollView Orientation="Horizontal">
-                <CollectionView ItemsSource="{Binding Sprites}">
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Horizontal" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Image Aspect="AspectFill" HeightRequest="100" WidthRequest="100">
-                                <Image.Source>
-                                    <UriImageSource Uri="{Binding .}" CacheValidity="2" CachingEnabled="True" />
-                                </Image.Source>
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ShowImageCommand}"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </ScrollView>
+                        <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                            <Label Text="Weight" FontSize="Title" TextColor="White" />
+                            <Label Text="{Binding Pokemon.Weight, Converter={StaticResource gramToPoundConverter}}" FontSize="Title" TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                            <Label Text="Height" FontSize="Title" TextColor="White" />
+                            <Label Text="{Binding Pokemon.Height}" FontSize="Title" TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                            <Label Text="Type" FontSize="Title" TextColor="White" Margin="0,0,0,10" />
+                            <CollectionView ItemsSource="{Binding Pokemon.Types}" HeightRequest="25">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button BackgroundColor="Green" 
+                                                TextColor="White" 
+                                                HeightRequest="25" 
+                                                WidthRequest="50"
+                                                Margin="5,5,5,5" 
+                                                Padding="5,5,5,5" 
+                                                Text="{Binding Type.Name}"/>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
