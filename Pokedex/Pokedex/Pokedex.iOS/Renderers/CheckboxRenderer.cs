@@ -25,7 +25,6 @@ namespace Pokedex.iOS.Renderers
                 var width = widthConstraint;
                 if (widthConstraint <= 0)
                 {
-                    System.Diagnostics.Debug.WriteLine("Default values");
                     width = DEFAULT_SIZE;
                 }
                 else if (widthConstraint <= 0)

@@ -11,6 +11,7 @@ using System.Linq;
 using Pokedex.Utilities;
 using Pokedex.RepositoryModels;
 using Pokedex.ViewModels;
+using Pokedex.Enums;
 
 namespace Pokedex.PageModels
 {
@@ -21,6 +22,7 @@ namespace Pokedex.PageModels
         private readonly IPokemonService _pokemonService;
         private readonly ILocalRepositoryService _localRepositoryService;
         private PokemonRepository _selectedPokemon;
+        private List<PokemonRepository> _filteredResults;
         #endregion
 
         public MainPageModel(IPokemonService pokemonService, ILocalRepositoryService localRepositoryService)
@@ -36,6 +38,7 @@ namespace Pokedex.PageModels
         public PokeAPIPageRepository PokeAPIPage { get; set; }
         public int PageNumber { get; set; }
         public bool IsLoading { get; set; }
+        public SortOrder? SortOrder { get; set; } = Enums.SortOrder.Ascending;
         public PokemonRepository SelectedPokemon
         {
             get
@@ -78,7 +81,7 @@ namespace Pokedex.PageModels
             var result = await Task.WhenAll(_pokemonService.GetPokemonAsync(url));
             var pokemon = result[0]; //TODO: Optimize async loading
             pokemon.Name = pokemon.Name.UppercaseFirst();
-            pokemon.Gallery =  new List<string>()
+            pokemon.Gallery = new List<string>()
             {
                 pokemon.Sprites.FrontDefault,
                 pokemon.Sprites.FrontShiny,
@@ -117,6 +120,8 @@ namespace Pokedex.PageModels
                 await CoreMethods.PushPageModel<PokemonTypeFilterPageModel>(Types, true, true);
             }
         });
+
+        public Command SortCommand => new Command(SortCommandHandler);
         #endregion
 
         #region Methods
@@ -142,18 +147,46 @@ namespace Pokedex.PageModels
             {
                 FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
             }
+
+            SortOrder = null;
+        }
+
+        //TODO: Incomplete code
+        private void SortCommandHandler()
+        {
+            var sortedResults = FilteredResults.ToList();
+
+            if (!SortOrder.HasValue) SortOrder = Enums.SortOrder.Ascending;
+
+            if (SortOrder.Value == Enums.SortOrder.Ascending)
+            {
+                SortOrder = Enums.SortOrder.Descending;
+
+                sortedResults.Sort((a, b) => b.CompareTo(a));
+            }
+            else
+            {
+                SortOrder = Enums.SortOrder.Ascending;
+
+                _filteredResults.OrderBy(x => x.Name);
+            }
+
+            FilteredResults = new ObservableCollection<PokemonRepository>(sortedResults);
         }
 
         public async Task SavePageAsync(PokeAPIPageRepository pokeAPIPage)
         {
             await _localRepositoryService.SavePokeAPIRepositoryAsync(pokeAPIPage);
         }
+
         public async Task GetPokeAPIPageAsync(string uri)
         {
             var pokeAPIPage = await _pokemonService.GetPokeAPIPageAsync(uri);
 
             if (pokeAPIPage != null)
             {
+                SortOrder = null;
+
                 PageNumber++;
 
                 PokeAPIPage = new PokeAPIPageRepository
@@ -192,7 +225,7 @@ namespace Pokedex.PageModels
             Device.BeginInvokeOnMainThread(() =>
             {
                 Pokemon.AddRange(repositories);
-                ApplyFilters();
+                ApplyFilters(); //Don't sort. Revert to default
                 IsLoading = false;
             });
         }
@@ -240,6 +273,8 @@ namespace Pokedex.PageModels
                         }
 
                         FilteredResults = new ObservableCollection<PokemonRepository>(Pokemon);
+
+                        SortCommandHandler();
 
                         IsLoading = false;
                     }

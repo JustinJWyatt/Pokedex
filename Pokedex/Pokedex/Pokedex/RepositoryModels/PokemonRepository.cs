@@ -1,9 +1,10 @@
 ﻿using Pokedex.Models;
 using SQLite;
+using System;
 
 namespace Pokedex.RepositoryModels
 {
-    public class PokemonRepository
+    public class PokemonRepository : IComparable<PokemonRepository>
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -16,5 +17,7 @@ namespace Pokedex.RepositoryModels
         public string Url { get; set; }
         public bool Favorite { get; set; }
         public string Types { get; set; }
+
+        public int CompareTo(PokemonRepository other) => Name.CompareTo(other.Name);
     }
 }

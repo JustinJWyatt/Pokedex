@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "85507471-8b2c-4e60-8a8b-2b7b9fb79dec": {
+      "ProjectGuid": "85507471-8b2c-4e60-8a8b-2b7b9fb79dec",
+      "DisplayName": "Pokedex.Android",
+      "ColorIndex": 0
+    },
+    "76c4f6d1-e185-4a9c-bdd7-544e40a54548": {
+      "ProjectGuid": "76c4f6d1-e185-4a9c-bdd7-544e40a54548",
+      "DisplayName": "Pokedex.iOS",
+      "ColorIndex": 1
+    },
+    "3b61ace1-019e-4838-8d9f-0f1b0a3524a3": {
+      "ProjectGuid": "3b61ace1-019e-4838-8d9f-0f1b0a3524a3",
+      "DisplayName": "Pokedex",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

@@ -5,61 +5,62 @@
              ios:Page.UseSafeArea="true"
              Title="Pokedex"
              xmlns:converters="clr-namespace:Pokedex.Converters"
+             xmlns:models="clr-namespace:Pokedex.Models"
              x:Class="Pokedex.Pages.MainPage">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:InverseBoolConverter x:Key="inverseBoolConverter" />
+            <converters:SortButtonColorConverter x:Key="sortButtonColorConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
-            <BoxView HorizontalOptions="StartAndExpand" />
-            <Image Source="Pokeball.png" HorizontalOptions="Center" />
-            <Image Source="settings.png" HorizontalOptions="EndAndExpand">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ShowPokemonFilterCommand}" />
-                </Image.GestureRecognizers>
-            </Image>
-        </StackLayout>
-    </NavigationPage.TitleView>
-
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Margin="0,10,0,10">
-            <CollectionView SelectedItem="{Binding SelectedPokemon}"
-                        ItemsSource="{Binding FilteredResults}"
-                        ItemSizingStrategy="MeasureFirstItem"
-                        SelectionMode="Single"
-                        RemainingItemsThreshold="2"
-                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
-                        VerticalOptions="FillAndExpand">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
-                                <Image HeightRequest="60" WidthRequest="60">
-                                    <Image.Source>
-                                        <UriImageSource Uri="{Binding Image}" CacheValidity="2" CachingEnabled="True"/>
-                                    </Image.Source>
-                                </Image>
-                                <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding Name}" FontSize="Large" VerticalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" IsVisible="{Binding IsLoading, Converter={StaticResource inverseBoolConverter}}">
+                <Button Text="Filter" HorizontalOptions="End" Command="{Binding ShowPokemonFilterCommand}" />
+                <Button HorizontalOptions="EndAndExpand" Command="{Binding SortCommand}" Text="{Binding SortOrder, StringFormat='Alphabet Sort'}">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding SortOrder}" Value="Ascending">
+                            <Setter Property="Text"  Value="Alphabet Sort (Asc)" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Button" Binding="{Binding SortOrder}" Value="Descending">
+                            <Setter Property="Text"  Value="Alphabet Sort (Desc)" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackLayout>
+            <ScrollView>
+                <!--<Label Text="&#xf17b;" 
+                           FontFamily="{StaticResource FontAwesomeBrands}" 
+                           FontSize="30" 
+                           HorizontalOptions="EndAndExpand"
+                           IsVisible="{Binding IsLoading, Converter={StaticResource inverseBoolConverter}}"/>-->
+                <CollectionView SelectedItem="{Binding SelectedPokemon}"
+                                ItemsSource="{Binding FilteredResults}"
+                                ItemSizingStrategy="MeasureFirstItem"
+                                SelectionMode="Single"
+                                RemainingItemsThreshold="2"
+                                VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                                    <Image HeightRequest="60" WidthRequest="60">
+                                        <Image.Source>
+                                            <UriImageSource Uri="{Binding Image}" CacheValidity="2" CachingEnabled="True"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Name}" FontSize="Large" VerticalOptions="CenterAndExpand" />
+                                    </StackLayout>
                                 </StackLayout>
+                                <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
                             </StackLayout>
-                            <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-                <CollectionView.Footer>
-                    <StackLayout Orientation="Vertical">
-                        <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"/>
-                        <Button Text="Load More" 
-                            Command="{Binding LoadMoreCommand}" 
-                            IsVisible="{Binding IsLoading, Converter={StaticResource inverseBoolConverter}}" />
-                    </StackLayout>
-                </CollectionView.Footer>
-            </CollectionView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

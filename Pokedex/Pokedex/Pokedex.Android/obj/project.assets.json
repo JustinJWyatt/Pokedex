@@ -3019,13 +3019,13 @@
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v9.0": [
       "Pokedex >= 1.0.0",
+      "Xamarin.Android.Support.v7.AppCompat >= 28.0.0.3",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 4.6.0.1141"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jwyatt\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\jwyatt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3037,20 +3037,17 @@
       "outputPath": "C:\\Users\\jwyatt\\Documents\\git\\Pokedex\\Pokedex\\Pokedex\\Pokedex.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
         "C:\\Users\\jwyatt\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "monoandroid90"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/srscloud/4655e561-814a-4ff3-beb0-69218f1e50de/_packaging/RoofHub/nuget/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid90": {
@@ -3065,6 +3062,10 @@
     "frameworks": {
       "monoandroid90": {
         "dependencies": {
+          "Xamarin.Android.Support.v7.AppCompat": {
+            "target": "Package",
+            "version": "[28.0.0.3, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.3.2, )"
