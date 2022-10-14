@@ -12,8 +12,11 @@
           "FreshMvvm": "3.0.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
+          "Plugin.ValidationRules": "1.5.0.1",
           "PropertyChanged.Fody": "3.3.1",
           "ReactiveUI": "13.1.1",
+          "System.ComponentModel.Annotations": "5.0.0",
+          "Xam.Plugin.Media": "5.0.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.FFImageLoading.Forms": "2.4.11.982",
           "Xamarin.Forms": "4.6.0.1141",
@@ -63,6 +66,14 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "Plugin.ValidationRules/1.5.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.ValidationRules.dll": {
+            "assemblyVersion": "1.5.0.1",
+            "fileVersion": "1.5.0.1"
           }
         }
       },
@@ -172,6 +183,14 @@
           "lib/netstandard1.3/System.ComponentModel.dll": {
             "assemblyVersion": "4.0.2.0",
             "fileVersion": "4.6.24705.1"
+          }
+        }
+      },
+      "System.ComponentModel.Annotations/5.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.ComponentModel.Annotations.dll": {
+            "assemblyVersion": "4.2.1.0",
+            "fileVersion": "4.6.26515.6"
           }
         }
       },
@@ -491,6 +510,17 @@
           }
         }
       },
+      "Xam.Plugin.Media/5.0.1": {
+        "dependencies": {
+          "Xamarin.Essentials": "1.5.3.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Media.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -599,6 +629,13 @@
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
+    "Plugin.ValidationRules/1.5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MneEOTQDr33Y2zHbGuXKe8KnVt/IPb1YJ3nSIqMsboZ7HFPhpwGOS8rU7xXtty7RCLBOEk8hFjm6/jJW64itzQ==",
+      "path": "plugin.validationrules/1.5.0.1",
+      "hashPath": "plugin.validationrules.1.5.0.1.nupkg.sha512"
+    },
     "PropertyChanged.Fody/3.3.1": {
       "type": "package",
       "serviceable": true,
@@ -675,6 +712,13 @@
       "sha512": "sha512-VyGn1jGRZVfxnh8EdvDCi71v3bMXrsu8aYJOwoV7SNDLVhiEqwP86pPMyRGsDsxhXAm2b3o9OIqeETfN5qfezw==",
       "path": "system.componentmodel/4.3.0",
       "hashPath": "system.componentmodel.4.3.0.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
+      "path": "system.componentmodel.annotations/5.0.0",
+      "hashPath": "system.componentmodel.annotations.5.0.0.nupkg.sha512"
     },
     "System.Diagnostics.Contracts/4.3.0": {
       "type": "package",
@@ -871,6 +915,13 @@
       "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
       "path": "system.threading.tasks.extensions/4.5.4",
       "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    },
+    "Xam.Plugin.Media/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UUR31EEnhDVa4IXgVfQIAL3u9v6YAyppsb5UlO9MNJ4quGGkfcWX++JexjB1nMGqvCzsjAT2t32drKDIXoW4SQ==",
+      "path": "xam.plugin.media/5.0.1",
+      "hashPath": "xam.plugin.media.5.0.1.nupkg.sha512"
     },
     "Xamarin.Essentials/1.5.3.2": {
       "type": "package",

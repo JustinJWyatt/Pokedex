@@ -12,6 +12,8 @@ public class MonoPackageManager_Resources {
 		"FreshIOC.dll",
 		"FreshMvvm.dll",
 		"Newtonsoft.Json.dll",
+		"Plugin.Media.dll",
+		"Plugin.ValidationRules.dll",
 		"Pokedex.dll",
 		"PropertyChanged.dll",
 		"ReactiveUI.dll",
