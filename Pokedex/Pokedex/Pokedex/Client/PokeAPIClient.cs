@@ -13,6 +13,8 @@ namespace Pokedex.Client
         {
             var httpClient = new HttpClient();
 
+            //httpClient.BaseAddress = "";
+
             using (HttpRequestMessage request = new HttpRequestMessage())
             {
                 request.RequestUri = uri;

@@ -19,7 +19,7 @@ namespace Pokedex
 
         private void Init()
         {
-            var page = FreshPageModelResolver.ResolvePageModel<MainPageModel>();
+            var page = FreshPageModelResolver.ResolvePageModel<TrelloPageModel>();
             MainPage = new FreshNavigationContainer(page);
         }
 
@@ -28,6 +28,7 @@ namespace Pokedex
             FreshIOC.Container.Register<IPokeAPIClient, PokeAPIClient>();
             FreshIOC.Container.Register<IPokemonService, PokemonService>();
             FreshIOC.Container.Register<ILocalRepositoryService, LocalRepositoryService>();
+            FreshIOC.Container.Register<ITrelloAPIClient, TrelloAPIClient>();
         }
     }
 }

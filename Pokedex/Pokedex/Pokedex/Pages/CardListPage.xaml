@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pokedex.Pages.CardListPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Margin="0,10,0,10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Entry Text="{Binding NewCard.Name}" Placeholder="Name" HorizontalOptions="FillAndExpand" />
+                <Entry Text="{Binding NewCard.Desc}" Placeholder="Description" HorizontalOptions="FillAndExpand" />
+                <Button Text="Add Card" Command="{Binding CreateCardCommand}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <ScrollView>
+                <CollectionView SelectedItem="{Binding SelectedCard}"
+                                ItemsSource="{Binding TrelloCards}"
+                                ItemSizingStrategy="MeasureFirstItem"
+                                SelectionMode="Single"
+                                RemainingItemsThreshold="2"
+                                VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Name}" FontSize="Large" HorizontalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Desc}"  LineBreakMode="TailTruncation" FontSize="Large" VerticalOptions="CenterAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <BoxView HeightRequest="1" BackgroundColor="LightGray"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
